@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c4beef7-1fcb-4fe8-902d-5007bc9df9c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/database/Agendamento.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/database/Usuario.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/database/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/filas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/filas.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/database/Agendamento.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/Agendamento.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/database/Usuario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/Usuario.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603215285718</updated>
       <workItem from="1603215291123" duration="103000" />
-      <workItem from="1603235402937" duration="5494000" />
+      <workItem from="1603235402937" duration="6819000" />
     </task>
     <servers />
   </component>

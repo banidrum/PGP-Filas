@@ -40,4 +40,5 @@ const Agendamento = connection.define('agendamento',{
 })
 
 Agendamento.sync({force: false})
-module.exports = Agendamento;
+
+export default Agendamento;

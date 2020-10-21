@@ -33,4 +33,4 @@ const Usuario = connection.define('usuario',{
 
 Usuario.sync({force: false})
 
-module.exports = Usuario;
+export default Usuario;
