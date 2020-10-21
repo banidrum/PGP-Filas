@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c4beef7-1fcb-4fe8-902d-5007bc9df9c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +49,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603215285718</updated>
       <workItem from="1603215291123" duration="103000" />
-      <workItem from="1603235402937" duration="2479000" />
+      <workItem from="1603235402937" duration="3150000" />
     </task>
     <servers />
   </component>
@@ -52,9 +57,17 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="180" y="27" width="996" height="741" key="CommitChangelistDialog2" timestamp="1603238554001">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="180" y="27" width="996" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1603238554001" />
     <state x="466" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603237199724">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="466" y="154" width="424" height="484" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1603237199724" />
+    <state x="314" y="159" width="728" height="475" key="MultipleFileMergeDialog" timestamp="1603238237708">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="314" y="159" width="728" height="475" key="MultipleFileMergeDialog/0.27.1366.741@0.27.1366.741" timestamp="1603238237708" />
   </component>
 </project>

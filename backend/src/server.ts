@@ -1,13 +1,11 @@
-import express, { json } from 'express';
+import app from './app';
 
-const app = express();
-
-app.use(json());
+const port = 3000;
 
 app.get("/", (request, response) => {
     return response.json({ message: "Hello, seja bem-vindo ao sistema de gerenciamento de filas!" });
 });
 
-app.listen(3333,()=>{
-    console.log("Servidor está rodando em http://localhost:3333");
+app.listen(3000, () => {
+    console.log(`Listening on port ${port}`);
 });

@@ -1,3 +1,5 @@
-/idea
-/node_modules
-/.gitignore
+node_modules/
+dist/
+package-lock.json
+.gitignore
+.idea/
