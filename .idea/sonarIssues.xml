@@ -23,7 +23,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/backend/src/database/Agendamento.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/database/Usuario.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/src/database/database.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/backend/src/server.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/filas.sql">
           <value>
             <set />
           </value>

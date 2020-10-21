@@ -5,4 +5,4 @@ const connection = new sequelize('filas','root','root', {
     dialect:'postgres'
 })
 
-module.exports = connection;
+export default connection;
