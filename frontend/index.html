@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./public/app.css">
+    <title>Formulário de cadastro</title>
+</head>
+<body>
+    <form 
+    action="" 
+    method="POST"
+    onsubmit="return formValidation(event)"
+    
+    >
+        <div class="form-group">
+            <label for="POST-name" class="control-label">Nome:</label>
+            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
+            <span class="msg-error" id="msg-nome"></span>
+        </div>
+        <div class="form-group">
+            <label for="POST-matricula" class="control-label">Matrícula:</label>
+            <input type="text" name="matricula" id="matricula" class="form-control" placeholder="Matrícula">
+            <span class="msg-error" id="msg-matricula"></span>
+        </div>
+        <div class="form-group">
+            <label for="POST-email">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+            <span class="msg-error" id="msg-email"></span>
+        </div>
+        <div class="form-group">
+            <label for="POST-data">Data:</label>
+            <input type="date" name="data" id="data" class="form-control">
+            <span class="msg-error" id="msg-data"></span>
+        </div>
+        <div class="form-group">
+        <label for="POST-local">Local:</label>
+            <select class="form-control" name="" id="">
+                <option value="biblioteca">Biblioteca</option>
+                <option value="secretaria-academica">Secretaria Acadêmica</option>
+            </select>
+        </div>
+        <div class="form-group">
+        <label for="Serviço">Serviço:</label>
+            <select class="form-control" name="servico" id="">
+                <option value="atendimento">Atendimento</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="calendario">Datas disponíveis:</label>
+            <input type="date" name="" id="" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</body>
+</html>
+<script src="./public/app.js"></script>
