@@ -55,4 +55,14 @@
     </form>
 </body>
 </html>
-<script src="./public/app.js"></script>
+<script>
+    function showError(idError, message){
+        idError.style.display = "block";
+        idError.innerHTML = message;
+        countErrors++;
+    }
+
+    function hideError(idError){
+        idError.style.display = "none";
+    }
+</script>
