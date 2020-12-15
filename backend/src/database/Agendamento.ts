@@ -9,20 +9,20 @@ const Agendamento = connection.define('agendamento',{
         primaryKey: true,
         type: sequelize.INTEGER
     },
-    id_usuario:{
-        type: sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'usuario',
-            key: 'id'
-        }
-    },
+    // id_usuario:{
+    //     type: sequelize.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'usuario',
+    //         key: 'id'
+    //     }
+    // },
     local:{
-        type:sequelize.TEXT,
+        type:sequelize.STRING,
         allowNull:false
     },
     servico:{
-        type:sequelize.TEXT,
+        type:sequelize.STRING,
         allowNull:false
     },
     data:{

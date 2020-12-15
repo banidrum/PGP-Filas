@@ -1,6 +1,20 @@
-import sequelize from 'sequelize';
-import connection from '../database/database';
+import Usuario from '../database/Usuario';
 
-const createUser = async (user) => {
+const userService = {
+
+ async createUser (user) {
+
+    console.log(`USER DENTRO DO CREATE USER ----> ${JSON.stringify(user)}`)
     
+    const createUser = await Usuario.create({
+        nome: user.name,
+        email: user.email,
+        matricula: user.matricula
+    });
+
+    return createUser;
 }
+
+}
+
+export default userService;
