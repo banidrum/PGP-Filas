@@ -4,48 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./public/app.css">
     <title>Formulário de cadastro</title>
 </head>
 <body>
     <div class="container">
             <h2>Formulário de cadastro</h2>
             <hr>
-            <form action="" method="POST" class="form-width" id="scheduleRegistrationForm">
-                <div class="form-group">
-                    <label for="POST-name" class="control-label">Nome:</label>
-                    <input type="text" name="nome" id="" class="form-control" placeholder="Nome">
-                </div>
-                <div class="form-group">
-                    <label for="POST-matricula" class="control-label">Matrícula:</label>
-                    <input type="number" name="matricula" id="" class="form-control" placeholder="Matrícula">
-                </div>
-                <div class="form-group">
-                    <label for="POST-email">Email:</label>
-                    <input type="email" name="email" id="" class="form-control" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="POST-data">Data:</label>
-                    <input type="date" name="data" id="" class="form-control">
-                </div>
-                <div class="form-group">
+        <form
+                action=""
+                method="POST"
+                onsubmit="return formValidation(event) & sendRegistrationForm()"
+                class="form-width"
+        >
+            <div class="form-group">
+                <label for="POST-name" class="control-label">Nome:</label>
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
+                <span class="msg-error" id="msg-nome"></span>
+            </div>
+            <div class="form-group">
+                <label for="POST-matricula" class="control-label">Matrícula:</label>
+                <input type="text" name="matricula" id="matricula" class="form-control" placeholder="Matrícula">
+                <span class="msg-error" id="msg-matricula"></span>
+            </div>
+            <div class="form-group">
+                <label for="POST-email">Email:</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                <span class="msg-error" id="msg-email"></span>
+            </div>
+            <div class="form-group">
+                <label for="POST-data">Data:</label>
+                <input type="date" name="data" id="data" class="form-control">
+                <span class="msg-error" id="msg-data"></span>
+            </div>
+            <div class="form-group">
                 <label for="POST-local">Local:</label>
-                    <select class="form-control" name="local" id="">
-                        <option value="biblioteca">Biblioteca</option>
-                        <option value="secretaria-academica">Secretaria Acadêmica</option>
-                    </select>
-                </div>
-                <div class="form-group">
+                <select class="form-control" name="local" id="local">
+                    <option value="biblioteca">Biblioteca</option>
+                    <option value="secretaria-academica">Secretaria Acadêmica</option>
+                </select>
+                <span class="msg-error" id="msg-local"></span>
+            </div>
+            <div class="form-group">
                 <label for="Serviço">Serviço:</label>
-                    <select class="form-control" name="servico" id="">
-                        <option value="">Atendimento</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="calendario">Datas disponíveis:</label>
-                    <input type="date" name="" id="" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
+                <select class="form-control" name="servico" id="servico">
+                    <option value="atendimento">Atendimento</option>
+                </select>
+                <span class="msg-error" id="msg-servico"></span>
+            </div>
+            <div class="form-group">
+                <label for="calendario">Datas disponíveis:</label>
+                <input type="date" name="" id="data-disponivel" class="form-control">
+                <span class="msg-error" id="msg-data-disponivel"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
         </div>
 </body>
 </html>
@@ -86,5 +99,82 @@
         .catch(err => {
             console.log(err)
         })
+
+    }
+
+</script>
+
+<script>
+    countErrors = 0;
+    function formValidation(event){
+        event.preventDefault();
+
+        let nome = document.getElementById('nome').value;
+
+        let error = document.getElementById("msg-nome");
+        if((nome === "") || typeof nome === 'undefined')
+            showError(error, "O nome do usuário é obligatório!");
+        else
+            hideError(error);
+
+        let matricula = document.getElementById('matricula').value;
+        error = document.getElementById("msg-matricula");
+        if((matricula === "") || typeof matricula === 'undefined')
+            showError(error, "O número da matrícula é obligatório!");
+        else
+            hideError(error);
+
+        let email = document.getElementById('email').value;
+        error = document.getElementById("msg-email")
+        if((email === "") || typeof email === 'undefined')
+            showError(error, "O endereço de email é obrigatório!");
+        else if (email.indexOf("@") === -1)
+            showError(error, "Entre um endereço de email válido!");
+        else
+            hideError(error);
+
+        let data = document.getElementById('data').value;
+        error = document.getElementById("msg-data");
+        if((data === "") || typeof data === 'undefined')
+            showError(error, "A data de agendamento é obrigatório!");
+        else
+            hideError(error);
+
+        let local = document.getElementById('local').value;
+        error = document.getElementById("msg-local");
+        if((local === "") || typeof local === 'undefined')
+            showError(error, "O local de agendamento é obrigatório!");
+        else
+            hideError(error);
+
+        let servico = document.getElementById('servico').value;
+        error = document.getElementById("msg-servico");
+        if((servico === "") || typeof servico === 'undefined')
+            showError(error, "É obrigatório escolher o serviço!");
+        else
+            hideError(error);
+
+        let dataDispo = document.getElementById('data-disponivel').value;
+        error = document.getElementById("msg-data-disponivel");
+        if((dataDispo === "") || typeof dataDispo === 'undefined')
+            showError(error, "Escolha uma data disponível!");
+        else
+            hideError(error);
+
+        if(countErrors > 0){
+            countErrors = 0;
+            return false;
+        }
+        return true;
+    }
+
+    function showError(idError, message){
+        idError.style.display = "block";
+        idError.innerHTML = message;
+        countErrors++;
+    }
+
+    function hideError(idError){
+        idError.style.display = "none";
     }
 </script>
