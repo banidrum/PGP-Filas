@@ -9,13 +9,14 @@
 </head>
 <body>
     <div class="container">
-            <h2>Formulário de cadastro</h2>
+            <h2>Formulário de cadastro de agendamento</h2>
             <hr>
         <form
-                action=""
-                method="POST"
-                onsubmit="return formValidation(event) & sendRegistrationForm()"
+                action="#"
+                method="post"
+                onsubmit="return formValidation(event) & sendRegistrationForm(event)"
                 class="form-width"
+                id="scheduleRegistrationForm"
         >
             <div class="form-group">
                 <label for="POST-name" class="control-label">Nome:</label>
@@ -87,12 +88,19 @@
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-    const schedule = document.getElementById("scheduleRegistrationForm")
+    function sendRegistrationForm(e) {
 
-    function sendRegestrationForm(formContent) {
-        axios.post("http://localhost:3000/schedule/register", {
-            schedule
-        })
+        const form = document.getElementById("scheduleRegistrationForm")
+
+        let data = new FormData(form)
+
+        const schedule = formDataToObject(data)
+
+        console.log(`SCHEDULE -> ${JSON.stringify(schedule)}`)
+
+        axios.post("http://localhost:3000/schedule/register", 
+            { schedule: schedule }
+        )
         .then(response => {
             console.log(response)
         })
@@ -100,7 +108,17 @@
             console.log(err)
         })
 
+        event.preventDefault()
     }
+
+    function formDataToObject(formData) {
+        const obj = {};
+	        for (var key of formData.keys()) {
+		        obj[key] = formData.get(key);
+	        }
+	        return obj;
+    }
+
 
 </script>
 
