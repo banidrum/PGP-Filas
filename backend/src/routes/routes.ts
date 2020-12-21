@@ -6,8 +6,6 @@ import OrganizationController from '../controllers/organizationController';
 const router = Router();
 
 router.post('/user/register', (req, res) => {
-    console.log(`REQUEST BODY -------> ${req.body}`)
-
     UserController.registerUser(req, res);
 });
 

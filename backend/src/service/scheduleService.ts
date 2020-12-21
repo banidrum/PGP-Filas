@@ -2,8 +2,6 @@ import Agendamento from '../database/Agendamento';
 
 const scheduleService = { 
     async registerSchedule(schedule) {
-
-        console.log(`SCHEDULE AQUI ----> ${JSON.stringify(schedule)}`)
         
         const createSchedule = await Agendamento.create({
             local: schedule.local,

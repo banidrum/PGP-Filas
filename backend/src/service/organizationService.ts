@@ -1,13 +1,13 @@
-// import Orgao from '../database/Orgao';
+import Orgao from '../database/Orgao';
 
 const organizationService = {
     async registerOrganization(organization) {
 
         const createOrganization = await Orgao.create({
             nome: organization.name,
-            endereco: organization.address,
+            email: organization.email,
             telefone: organization.phone,
-            email: organization.email
+            endereco: organization.address
         })
 
         return createOrganization;

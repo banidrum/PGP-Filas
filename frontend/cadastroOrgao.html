@@ -1,39 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./public/app.css">
     <title>Cadastro do Órgão</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Formulário de cadastro do órgão</h2>
-        <hr>
-        <form action="" id="registrationForm" method="POST" class="form-width" onsubmit="sendOrganizationForm()">
-            <div class="form-group">
-                <label for="POST-name" class="control-label">Nome:</label>
-                <input type="text" name="nome" id="" class="form-control" placeholder="Nome">
-            </div>
-            <div class="form-group">
-                <label for="POST-name" class="control-label">Endereço:</label>
-                <input type="text" name="address" id="" class="form-control" placeholder="Endereço">
-            </div>
-            <div class="form-group">
-                <label for="POST-name" class="control-label">Telefone:</label>
-                <input type="number" name="phone" id="" class="form-control" placeholder="Telefone">
-            </div>
-            <div class="form-group">
-                <label for="POST-name" class="control-label">Email:</label>
-                <input type="email" name="email" id="" class="form-control" placeholder="Email">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-    </div>
+<div class="container">
+    <h2>Formulário de cadastro do órgão</h2>
+    <hr>
+    <form
+            action=""
+            method="POST"
+            class="form-width"
+            onsubmit="return formValidation(event) & sendOrganizationForm(event)"
+            id="form-orgao"
+    >
+        <div class="form-group">
+            <label for="POST-name" class="control-label">Nome:</label>
+            <input type="text" name="name" id="nome" class="form-control" placeholder="Nome">
+            <span class="msg-error" id="msg-nome"></span>
+        </div>
+        <div class="form-group">
+            <label for="POST-name" class="control-label">Endereço:</label>
+            <input type="text" name="address" id="endereco" class="form-control" placeholder="Endereço">
+            <span class="msg-error" id="msg-endereco"></span>
+        </div>
+        <div class="form-group">
+            <label for="POST-name" class="control-label">Telefone:</label>
+            <input type="number" name="phone" id="telefone" class="form-control" placeholder="Telefone">
+            <span class="msg-error" id="msg-telefone"></span>
+        </div>
+        <div class="form-group">
+            <label for="POST-name" class="control-label">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+            <span class="msg-error" id="msg-email"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
 </body>
 </html>
 
-<script src=""></script>
 <script>
+    countErrors = 0;
+    function formValidation(event){
+        event.preventDefault();
+
+        let nome = document.getElementById('nome').value;
+
+        let error = document.getElementById("msg-nome");
+        if((nome === "") || typeof nome === 'undefined')
+            showError(error, "O nome do órgão é obligatório!");
+        else
+            hideError(error);
+
+        let email = document.getElementById('email').value;
+        error = document.getElementById("msg-email")
+        if((email === "") || typeof email === 'undefined')
+            showError(error, "O endereço de email é obrigatório!");
+        else if (email.indexOf("@") === -1)
+            showError(error, "Entre um endereço de email válido!");
+        else
+            hideError(error);
+
+        let telefone = document.getElementById('telefone').value;
+        error = document.getElementById("msg-telefone");
+        if((telefone === "") || typeof telefone === 'undefined')
+            showError(error, "Preencha com um número de telefone");
+        else
+            hideError(error);
+
+        let endereco = document.getElementById('endereco').value;
+        error = document.getElementById("msg-endereco");
+        if((endereco === "") || typeof endereco === 'undefined')
+            showError(error, "O local de agendamento é obrigatório!");
+        else
+            hideError(error);
+
+        if(countErrors > 0){
+            countErrors = 0;
+            return false;
+        }
+
+    function showError(idError, message){
+        idError.style.display = "block";
+        idError.innerHTML = message;
+        countErrors++;
+    }
+
+    function hideError(idError){
+        idError.style.display = "none";
+    }
+
+    }
+</script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    function sendOrganizationForm(e) {
+
+    const formOrgao = document.getElementById('form-orgao');
+
+    let data = new FormData(formOrgao);
+
+    const organization = formDataToObject(data);
+
+    axios.post("http://localhost:3000/organization/register", {
+        organization: organization
+    })
+    .then(response => {
+        console.log(response)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+    event.preventDefault()
+
+    }
+
+    function formDataToObject(formData) {
+        const obj = {};
+	        for (var key of formData.keys()) {
+		        obj[key] = formData.get(key);
+	        }
+	        return obj;
+    }
 
 </script>
