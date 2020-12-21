@@ -13,7 +13,7 @@
             action=""
             method="POST"
             class="form-width"
-            onsubmit="return formValidation(event) & sendOrganizationForm(event)"
+            onsubmit="return formValidation(event)"
             id="form-orgao"
     >
         <div class="form-group">
@@ -44,20 +44,20 @@
 
 <script>
     countErrors = 0;
-    function formValidation(event){
+    function formValidation(event) {
         event.preventDefault();
 
         let nome = document.getElementById('nome').value;
 
         let error = document.getElementById("msg-nome");
-        if((nome === "") || typeof nome === 'undefined')
+        if ((nome === "") || typeof nome === 'undefined')
             showError(error, "O nome do órgão é obligatório!");
         else
             hideError(error);
 
         let email = document.getElementById('email').value;
         error = document.getElementById("msg-email")
-        if((email === "") || typeof email === 'undefined')
+        if ((email === "") || typeof email === 'undefined')
             showError(error, "O endereço de email é obrigatório!");
         else if (email.indexOf("@") === -1)
             showError(error, "Entre um endereço de email válido!");
@@ -66,22 +66,24 @@
 
         let telefone = document.getElementById('telefone').value;
         error = document.getElementById("msg-telefone");
-        if((telefone === "") || typeof telefone === 'undefined')
+        if ((telefone === "") || typeof telefone === 'undefined')
             showError(error, "Preencha com um número de telefone");
         else
             hideError(error);
 
         let endereco = document.getElementById('endereco').value;
         error = document.getElementById("msg-endereco");
-        if((endereco === "") || typeof endereco === 'undefined')
+        if ((endereco === "") || typeof endereco === 'undefined')
             showError(error, "O local de agendamento é obrigatório!");
         else
             hideError(error);
 
-        if(countErrors > 0){
+        if (countErrors > 0) {
             countErrors = 0;
             return false;
         }
+        sendOrganizationForm(event)
+    }
 
     function showError(idError, message){
         idError.style.display = "block";
@@ -93,7 +95,6 @@
         idError.style.display = "none";
     }
 
-    }
 </script>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -111,7 +112,8 @@
         organization: organization
     })
     .then(response => {
-        console.log(response)
+        alert(response.data)
+        formOrgao.reset();
     })
     .catch(err => {
         console.log(err)
