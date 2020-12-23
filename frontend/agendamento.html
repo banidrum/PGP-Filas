@@ -14,7 +14,7 @@
         <form
                 action="#"
                 method="post"
-                onsubmit="return formValidation(event) & sendRegistrationForm(event)"
+                onsubmit="return formValidation(event)"
                 class="form-width"
                 id="scheduleRegistrationForm"
         >
@@ -184,7 +184,7 @@
             countErrors = 0;
             return false;
         }
-        return true;
+        sendRegistrationForm(event)
     }
 
     function showError(idError, message){
