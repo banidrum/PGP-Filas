@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./public/app.css">
+    <title>Formulário de cadastro</title>
+</head>
+<body>
+    <div class="container">
+            <h2>Formulário de cadastro</h2>
+            <hr>
+        <form
+                action="#"
+                method="post"
+                onsubmit="return formValidation(event) & sendRegistrationForm(event)"
+                class="form-width"
+                id="scheduleRegistrationForm"
+        >
+            <div class="form-group">
+                <label for="POST-name" class="control-label">Nome:</label>
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome">
+                <span class="msg-error" id="msg-nome"></span>
+            </div>
+            <div class="form-group">
+                <label for="POST-email">Email:</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                <span class="msg-error" id="msg-email"></span>
+            </div>
+            <div class="form-group">
+                <label for="POST-matricula" class="control-label">Matrícula:</label>
+                <input type="text" name="matricula" id="matricula" class="form-control" placeholder="Matrícula">
+                <span class="msg-error" id="msg-matricula"></span>
+            </div>
+            <div class="form-group">
+                <label for="POST-data">Senha:</label>
+                <input type="password" name="data" id="data" class="form-control">
+                <span class="msg-error" id="msg-data"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        </div>
+</body>
+</html>
+
+<style>
+    .float-left {
+        float: left;
+    }
+
+    .space-left {
+        margin-left: 0.5%;
+    }
+
+    hr {
+        width: 100%;
+    }
+
+    .form-width {
+        width: 50%;
+    }
+
+    .form-style {
+        border: 1px solid black;
+    }
+</style>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    function sendRegistrationForm(e) {
+
+        const form = document.getElementById("scheduleRegistrationForm")
+
+        let data = new FormData(form)
+
+        const schedule = formDataToObject(data)
+
+        console.log(`SCHEDULE -> ${JSON.stringify(schedule)}`)
+
+        axios.post("http://localhost:3000/schedule/register", 
+            { schedule: schedule }
+        )
+        .then(response => {
+            console.log(response)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        event.preventDefault()
+    }
+
+    function formDataToObject(formData) {
+        const obj = {};
+	        for (var key of formData.keys()) {
+		        obj[key] = formData.get(key);
+	        }
+	        return obj;
+    }
+
+
+</script>
+
+<script>
+    countErrors = 0;
+    function formValidation(event){
+        event.preventDefault();
+
+        let nome = document.getElementById('nome').value;
+
+        let error = document.getElementById("msg-nome");
+        if((nome === "") || typeof nome === 'undefined')
+            showError(error, "O nome do usuário é obligatório!");
+        else
+            hideError(error);
+
+        let matricula = document.getElementById('matricula').value;
+        error = document.getElementById("msg-matricula");
+        if((matricula === "") || typeof matricula === 'undefined')
+            showError(error, "O número da matrícula é obligatório!");
+        else
+            hideError(error);
+
+        let email = document.getElementById('email').value;
+        error = document.getElementById("msg-email")
+        if((email === "") || typeof email === 'undefined')
+            showError(error, "O endereço de email é obrigatório!");
+        else if (email.indexOf("@") === -1)
+            showError(error, "Entre um endereço de email válido!");
+        else
+            hideError(error);
+
+        let data = document.getElementById('data').value;
+        error = document.getElementById("msg-data");
+        if((data === "") || typeof data === 'undefined')
+            showError(error, "A data de agendamento é obrigatório!");
+        else
+            hideError(error);
+
+        let local = document.getElementById('local').value;
+        error = document.getElementById("msg-local");
+        if((local === "") || typeof local === 'undefined')
+            showError(error, "O local de agendamento é obrigatório!");
+        else
+            hideError(error);
+
+        let servico = document.getElementById('servico').value;
+        error = document.getElementById("msg-servico");
+        if((servico === "") || typeof servico === 'undefined')
+            showError(error, "É obrigatório escolher o serviço!");
+        else
+            hideError(error);
+
+        let dataDispo = document.getElementById('data-disponivel').value;
+        error = document.getElementById("msg-data-disponivel");
+        if((dataDispo === "") || typeof dataDispo === 'undefined')
+            showError(error, "Escolha uma data disponível!");
+        else
+            hideError(error);
+
+        if(countErrors > 0){
+            countErrors = 0;
+            return false;
+        }
+        return true;
+    }
+
+    function showError(idError, message){
+        idError.style.display = "block";
+        idError.innerHTML = message;
+        countErrors++;
+    }
+
+    function hideError(idError){
+        idError.style.display = "none";
+    }
+</script>
