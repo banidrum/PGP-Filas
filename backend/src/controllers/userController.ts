@@ -16,6 +16,17 @@ const userController = {
         });
 
         return res.json("User created.");
+    },
+
+    logon(req,res){
+        const login = req.body.user
+        userService.entrar(login)
+        .then((result) => {
+            return result;
+        })
+        .catch(err => {
+            return err;
+        });
     }
 }
 

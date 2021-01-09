@@ -2,6 +2,8 @@ import { Router } from 'express';
 import ScheduleController from '../controllers/scheduleController';
 import UserController from '../controllers/userController';
 import OrganizationController from '../controllers/organizationController';
+// @ts-ignore
+import passport from 'passport';
 
 const router = Router();
 
@@ -28,5 +30,10 @@ router.get('/schedule/list-dates', (req, res) => {
 router.get('/schedule/list-schedules/:id', (req, res) => {
     ScheduleController.listAllSchedules(req, res)
 })
+
+router.post('/user/login', (req, res) => {
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    UserController.logon(req, res)
+});
 
 export default router;
