@@ -158,7 +158,13 @@
             .then(response => {
               if (response.data.success === true){
                 localStorage.setItem('user',JSON.stringify(response.data.user));
-                window.location.href = 'dashboard.html';
+                let view = '';
+                if (response.data.user.role === 'normal'){
+                    view = 'dashboard.html';
+                }else{
+                    view = 'adm-dashboard.html';
+                }
+                window.location.href = view;
               }else{
                 alert(response.data.message)
               }

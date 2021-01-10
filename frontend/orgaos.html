@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Painel de controle</title>
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Painel do Administrador</h3><br><br>
+            <h4 id="adm-name">Jod fedlet</h4>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="adm-dashboard.html" aria-expanded="false" class="dropdown-toggle">Home</a>
+            </li>
+            <li class="active">
+                <a href="usuarios.html" aria-expanded="false" class="dropdown-toggle">Usuários</a>
+            </li>
+            <li class="active">
+                <a href="orgaos.html" aria-expanded="false" class="dropdown-toggle">Orgãos</a>
+            </li>
+            <li class="active">
+                <a href="agendamentos.html" aria-expanded="false" class="dropdown-toggle">Agendamentos</a>
+            </li>
+            <li>
+                <a href="" onclick="logout(event)">Sair</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!--  <form action="" method="GET" onsubmit="getSchedules(event)">
+          <button class="btn btn-primary center" type="submit">Listar agendamentos</button>
+      </form>-->
+    <div id="results" class="container go-down">
+        <h3>Órgãos</h3>
+        <a href="cadastroOrgao.html">
+            <button class="btn btn-primary pull-right" type="submit">Novo</button>
+        </a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Endereço</th>
+            </tr>
+            </thead>
+            <tbody id="renderTest">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    (function() {
+        let user = JSON.parse(localStorage.getItem('user'));
+        document.getElementById('adm-name').innerHTML = user.name;
+    })();
+
+    function getSchedules(e) {
+
+        axios.get("http://localhost:3000/schedule/list-schedules/1")
+            .then(result => {
+                showResults(result.data);
+            })
+            .catch(error => {
+                return error
+            })
+
+        event.preventDefault()
+    }
+
+    function logout(event){
+        axios.get("http://localhost:3000/user/logout")
+            .then(result => {
+                localStorage.setItem('user',"");
+                window.location.href = 'login.html'
+            })
+            .catch(error => {
+                alert(error)
+            })
+
+        event.preventDefault()
+    }
+
+    function showResults (schedule) {
+        document.getElementById('results').style.display = 'block'
+
+        let table = document.getElementById("renderTest")
+
+        schedule.forEach(item => {
+            let row = `
+                        <td>${item.local}</td>
+                        <td>${item.servico}</td>
+                        <td>${new Date(item.data).toLocaleString()}</td>
+                        <td>
+                            <form action="" method="GET" onsubmit="cancelSchedule(event, ${item.id})">
+                                <button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </form>
+                        </td>
+
+            `
+
+            table.innerHTML += row;
+        })
+
+
+    }
+
+    function cancelSchedule(e, scheduleId) {
+        axios.delete(`http://localhost:3000/schedule/cancel/${scheduleId}`)
+            .then(result => {
+                return result
+            })
+            .catch(err => {
+                return err
+            })
+
+        event.preventDefault()
+    }
+</script>
+
+<style>
+    .wrapper {
+        display: flex;
+        align-items: stretch;
+    }
+
+    #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        min-height: 100vh;
+    }
+
+    #sidebar.active {
+        margin-left: -250px;
+    }
+
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    @media (max-width: 768px) {
+        #sidebar {
+            margin-left: -250px;
+        }
+        #sidebar.active {
+            margin-left: 0;
+        }
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #fafafa;
+    }
+
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1em;
+        font-weight: 300;
+        line-height: 1.7em;
+        color: #999;
+    }
+
+    a, a:hover, a:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    #sidebar {
+        /* don't forget to add all the previously mentioned styles here too */
+        background: #7386D5;
+        color: #fff;
+        transition: all 0.3s;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background: #6d7fcc;
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
+    }
+
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+    #sidebar ul li a:hover {
+        color: #7386D5;
+        background: #fff;
+    }
+
+    #sidebar ul li.active > a, a[aria-expanded="true"] {
+        color: #fff;
+        background: #6d7fcc;
+    }
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #6d7fcc;
+    }
+
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .go-down {
+        margin-top: 2.5%;
+    }
+</style>

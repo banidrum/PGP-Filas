@@ -24,6 +24,10 @@ const Usuario = connection.define('usuario',{
     password:{
         type:sequelize.STRING,
         allowNull:false
+    },
+    role: {
+        type: sequelize.DataTypes.ENUM('adm', 'normal'),
+        defaultValue: 'normal'
     }
 })
 

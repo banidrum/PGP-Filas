@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c4beef7-1fcb-4fe8-902d-5007bc9df9c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/userController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/database/Usuario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/Usuario.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/database/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/service/userService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/agendamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/agendamento.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/cadastroUsuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/cadastroUsuario.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
@@ -32,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -52,16 +45,24 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PhpstormProjects/IXCSoft" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/frontend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/backend/node_modules/typescript/lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -75,11 +76,12 @@
       <workItem from="1603215291123" duration="103000" />
       <workItem from="1603235402937" duration="6819000" />
       <workItem from="1605008372895" duration="228000" />
+      <workItem from="1610310408161" duration="2887000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

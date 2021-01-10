@@ -12,42 +12,30 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Painel do usuário</h3><br><br>
-                <h4 id="user-name">Jod fedlet</h4>
+                <h3>Painel do Administrador</h3><br><br>
+                <h4 id="adm-name">Jod fedlet</h4>
             </div>
     
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="dashboard.html" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <a href="adm-dashboard.html" aria-expanded="false" class="dropdown-toggle">Home</a>
+                </li>
+                <li class="active">
+                    <a href="usuarios.html" aria-expanded="false" class="dropdown-toggle">Usuários</a>
+                </li>
+                <li class="active">
+                    <a href="orgaos.html" aria-expanded="false" class="dropdown-toggle">Orgãos</a>
+                </li>
+                <li class="active">
+                    <a href="agendamentos.html" aria-expanded="false" class="dropdown-toggle">Agendamentos</a>
                 </li>
                 <li>
                     <a href="" onclick="logout(event)">Sair</a>
                 </li>
             </ul>
         </nav>
-
-  <!--  <form action="" method="GET" onsubmit="getSchedules(event)">
-        <button class="btn btn-primary center" type="submit">Listar agendamentos</button>
-    </form>-->
-        <div id="results" class="container go-down">
-            <h3>Agendamentos</h3>
-            <a href="agendamento.html">
-                <button class="btn btn-primary pull-right" type="submit">Novo</button>
-            </a>
-        <table class="table">
-             <thead>
-                <tr>
-                     <th scope="col">Local</th>
-                     <th scope="col">Serviço</th>
-                     <th scope="col">Data</th>
-                     <th scope="col">Cancelar</th>
-                </tr>
-            </thead>
-            <tbody id="renderTest">
-
-            </tbody>
-        </table>
     </div>
+
 </body>
 </html>
 
@@ -56,7 +44,7 @@
 
     (function() {
         let user = JSON.parse(localStorage.getItem('user'));
-        document.getElementById('user-name').innerHTML = user.name;
+        document.getElementById('adm-name').innerHTML = user.name;
     })();
 
     function getSchedules(e) {
