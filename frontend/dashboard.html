@@ -12,42 +12,53 @@
         <!-- Sidebar -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Painel de agendamentos</h3>
+                <h3>Painel do usuário</h3><br><br>
+                <h4 id="user-name">Jod fedlet</h4>
             </div>
     
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#homeSubmenu" aria-expanded="false" class="dropdown-toggle">Home</a>
+                    <a href="#" aria-expanded="false" class="dropdown-toggle">Home</a>
                 </li>
                 <li>
-                    <a href="#">Sair</a>
+                    <a href="" onclick="logout(event)">Sair</a>
                 </li>
             </ul>
         </nav> 
 
-    <form action="" method="GET" onsubmit="getSchedules(event)">
+  <!--  <form action="" method="GET" onsubmit="getSchedules(event)">
         <button class="btn btn-primary center" type="submit">Listar agendamentos</button>
-    </form>
-
-    <div id="results" class="container go-down">
+    </form>-->
+        <div id="results" class="container go-down">
+            <h3>Agendamentos</h3>
+            <a href="agendamento.html">
+                <button class="btn btn-primary pull-right" type="submit">Novo</button>
+            </a>
         <table class="table">
-                 <thead>
-                    <tr>
-                         <th scope="col">Local</th>
-                         <th scope="col">Serviço</th>
-                         <th scope="col">Data</th>
-                         <th scope="col">Cancelar</th>
-                    </tr>
-                </thead>
-                <tbody id="renderTest">
+             <thead>
+                <tr>
+                     <th scope="col">Local</th>
+                     <th scope="col">Serviço</th>
+                     <th scope="col">Data</th>
+                     <th scope="col">Cancelar</th>
+                </tr>
+            </thead>
+            <tbody id="renderTest">
 
-                </tbody>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
+
+    (function() {
+        let user = JSON.parse(localStorage.getItem('user'));
+        document.getElementById('user-name').innerHTML = user.name;
+    })();
+
     function getSchedules(e) {
 
         axios.get("http://localhost:3000/schedule/list-schedules/1")
@@ -57,6 +68,19 @@
         .catch(error => {
             return error
         })
+
+        event.preventDefault()
+    }
+
+    function logout(event){
+        axios.get("http://localhost:3000/user/logout")
+            .then(result => {
+                localStorage.setItem('user',"");
+                window.location.href = 'login.html'
+            })
+            .catch(error => {
+                alert(error)
+            })
 
         event.preventDefault()
     }

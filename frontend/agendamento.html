@@ -96,8 +96,6 @@
 
         const schedule = formDataToObject(data)
 
-        console.log(`SCHEDULE -> ${JSON.stringify(schedule)}`)
-
         axios.post("http://localhost:3000/schedule/register", 
             { schedule: schedule }
         )
@@ -106,7 +104,7 @@
             form.reset();
         })
         .catch(err => {
-            console.log(err)
+            console.log(err.data)
         })
 
         event.preventDefault()

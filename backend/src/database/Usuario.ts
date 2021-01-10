@@ -21,13 +21,9 @@ const Usuario = connection.define('usuario',{
         type:sequelize.STRING,
         allowNull:false
     },
-    createdAt: {
-        allowNull: false,
-        type: sequelize.DATE
-    },
-    updatedAt: {
-        allowNull: false,
-        type: sequelize.DATE
+    password:{
+        type:sequelize.STRING,
+        allowNull:false
     }
 })
 

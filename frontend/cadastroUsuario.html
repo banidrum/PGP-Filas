@@ -9,14 +9,14 @@
 </head>
 <body>
     <div class="container">
-            <h2>Formulário de cadastro</h2>
+            <h2>Cadastro do usuário</h2>
             <hr>
         <form
                 action="#"
                 method="post"
-                onsubmit="return formValidation(event) & sendRegistrationForm(event)"
+                onsubmit="return formValidation(event)"
                 class="form-width"
-                id="scheduleRegistrationForm"
+                id="userForm"
         >
             <div class="form-group">
                 <label for="POST-name" class="control-label">Nome:</label>
@@ -35,10 +35,13 @@
             </div>
             <div class="form-group">
                 <label for="POST-data">Senha:</label>
-                <input type="password" name="data" id="data" class="form-control">
-                <span class="msg-error" id="msg-data"></span>
+                <input type="password" name="password" id="password" class="form-control">
+                <span class="msg-error" id="msg-password"></span>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
+            <div class="text-center">
+                <a class="small" href="login.html">Logar</a>
+            </div>
         </form>
         </div>
 </body>
@@ -70,22 +73,22 @@
 <script>
     function sendRegistrationForm(e) {
 
-        const form = document.getElementById("scheduleRegistrationForm")
+        const form = document.getElementById("userForm")
 
         let data = new FormData(form)
 
-        const schedule = formDataToObject(data)
+        const user = formDataToObject(data)
 
-        console.log(`SCHEDULE -> ${JSON.stringify(schedule)}`)
+        console.log(`USER -> ${JSON.stringify(user)}`)
 
-        axios.post("http://localhost:3000/schedule/register", 
-            { schedule: schedule }
+        axios.post("http://localhost:3000/user/register",
+            { user: user }
         )
         .then(response => {
-            console.log(response)
+           alert(response.data)
         })
         .catch(err => {
-            console.log(err)
+            alert(err.data)
         })
 
         event.preventDefault()
@@ -110,52 +113,34 @@
         let nome = document.getElementById('nome').value;
 
         let error = document.getElementById("msg-nome");
-        if((nome === "") || typeof nome === 'undefined')
+        if(!nome)
             showError(error, "O nome do usuário é obligatório!");
         else
             hideError(error);
 
         let matricula = document.getElementById('matricula').value;
         error = document.getElementById("msg-matricula");
-        if((matricula === "") || typeof matricula === 'undefined')
+        if(!matricula)
             showError(error, "O número da matrícula é obligatório!");
         else
             hideError(error);
 
         let email = document.getElementById('email').value;
         error = document.getElementById("msg-email")
-        if((email === "") || typeof email === 'undefined')
+        if(!email)
             showError(error, "O endereço de email é obrigatório!");
         else if (email.indexOf("@") === -1)
             showError(error, "Entre um endereço de email válido!");
         else
             hideError(error);
 
-        let data = document.getElementById('data').value;
-        error = document.getElementById("msg-data");
-        if((data === "") || typeof data === 'undefined')
-            showError(error, "A data de agendamento é obrigatório!");
-        else
-            hideError(error);
+        let password = document.getElementById('password').value;
+        error = document.getElementById("msg-password");
 
-        let local = document.getElementById('local').value;
-        error = document.getElementById("msg-local");
-        if((local === "") || typeof local === 'undefined')
-            showError(error, "O local de agendamento é obrigatório!");
-        else
-            hideError(error);
-
-        let servico = document.getElementById('servico').value;
-        error = document.getElementById("msg-servico");
-        if((servico === "") || typeof servico === 'undefined')
-            showError(error, "É obrigatório escolher o serviço!");
-        else
-            hideError(error);
-
-        let dataDispo = document.getElementById('data-disponivel').value;
-        error = document.getElementById("msg-data-disponivel");
-        if((dataDispo === "") || typeof dataDispo === 'undefined')
-            showError(error, "Escolha uma data disponível!");
+        if(!password)
+            showError(error, "O campo senha é obligatório");
+        else if(password.length < 6)
+            showError(error, "A senha deve conter pelo menos 6 caracteres!");
         else
             hideError(error);
 
@@ -163,7 +148,7 @@
             countErrors = 0;
             return false;
         }
-        return true;
+        sendRegistrationForm(event);
     }
 
     function showError(idError, message){

@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c4beef7-1fcb-4fe8-902d-5007bc9df9c6" name="Default Changelist" comment="" />
+    <list default="true" id="9c4beef7-1fcb-4fe8-902d-5007bc9df9c6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/userController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/database/Usuario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/Usuario.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/database/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/database.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/service/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/service/userService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/agendamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/agendamento.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/cadastroUsuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/cadastroUsuario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +37,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1j9TPn6Bhb80kxeuAqwNaGN3kPv" />
   <component name="ProjectViewState">
@@ -55,22 +81,16 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="180" y="27" width="996" height="741" key="CommitChangelistDialog2" timestamp="1603238554001">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="180" y="27" width="996" height="741" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1603238554001" />
-    <state x="466" y="154" width="424" height="484" key="FileChooserDialogImpl" timestamp="1605008593380">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="466" y="154" width="424" height="484" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1605008593380" />
-    <state x="314" y="159" width="728" height="475" key="MultipleFileMergeDialog" timestamp="1603238237708">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="314" y="159" width="728" height="475" key="MultipleFileMergeDialog/0.27.1366.741@0.27.1366.741" timestamp="1603238237708" />
-    <state x="100" y="125" width="1166" height="543" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603239774366">
-      <screen x="0" y="27" width="1366" height="741" />
-    </state>
-    <state x="100" y="125" width="1166" height="543" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.27.1366.741@0.27.1366.741" timestamp="1603239774366" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

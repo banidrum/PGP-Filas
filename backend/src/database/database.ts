@@ -1,4 +1,4 @@
-import sequelize from "sequelize";
+// @ts-ignore
 import { Sequelize } from "sequelize";
 
 const connection = new Sequelize('filas','postgres','root', {

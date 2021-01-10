@@ -32,8 +32,11 @@ router.get('/schedule/list-schedules/:id', (req, res) => {
 })
 
 router.post('/user/login', (req, res) => {
-    passport.authenticate('local', { failureRedirect: '/login' }),
     UserController.logon(req, res)
+});
+
+router.get('/user/logout', (req, res) => {
+    UserController.logout(req, res)
 });
 
 export default router;

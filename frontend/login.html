@@ -16,24 +16,29 @@
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">Bem vindo (a)!</h3>
-                    <form>
+                    <form
+                            action="#"
+                            method="post"
+                            onsubmit="return login(event)"
+                       id="user-login"
+                    >
                       <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-                        <label for="inputEmail">Email</label>
+                        <input type="email" id="email"  name="email"class="form-control" placeholder="Email" required autofocus>
+                        <label for="email">Email</label>
                       </div>
       
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
-                        <label for="inputPassword">Senha</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Senha" required>
+                        <label for="password">Senha</label>
                       </div>
-      
-                      <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Lembrar</label>
-                      </div>
+
                       <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Entrar</button>
                       <div class="text-center">
-                        <a class="small" href="#">Esqueceu sua senha?</a></div>
+                        <a class="small" href="#">Esqueceu sua senha?</a>
+                      </div>
+                      <div class="text-center">
+                        <a class="small" href="cadastroUsuario.html">Ciar uma conta</a>
+                      </div>
                     </form>
                   </div>
                 </div>
@@ -136,3 +141,42 @@
 }
 
 </style>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  function login(e) {
+    e.preventDefault()
+
+    const form = document.getElementById("user-login")
+
+    let data = new FormData(form)
+
+    const user = formDataToObject(data)
+    axios.post("http://localhost:3000/user/login",
+            { user: user }
+    )
+            .then(response => {
+              if (response.data.success === true){
+                localStorage.setItem('user',JSON.stringify(response.data.user));
+                window.location.href = 'dashboard.html';
+              }else{
+                alert(response.data.message)
+              }
+            })
+            .catch(err => {
+              alert(err.data)
+            })
+
+    e.preventDefault()
+  }
+
+  function formDataToObject(formData) {
+    const obj = {};
+    for (var key of formData.keys()) {
+      obj[key] = formData.get(key);
+    }
+    return obj;
+  }
+
+
+</script>
