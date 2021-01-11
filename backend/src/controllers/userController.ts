@@ -50,6 +50,9 @@ const userController = {
             //@ts-ignore
             let role = usuario.role;
 
+            //@ts-ignore
+            let matricula = usuario.matricula;
+
             let checkPassword = bcrypt.compareSync(user.password, oldPassword);
 
             if (!checkPassword) {
@@ -63,6 +66,7 @@ const userController = {
                     name: name,
                     email: email,
                     role: role,
+                    matricula: matricula,
                 }
                 res.json({
                     success:true,

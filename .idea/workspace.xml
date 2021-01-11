@@ -7,10 +7,8 @@
     <list default="true" id="9c4beef7-1fcb-4fe8-902d-5007bc9df9c6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/userController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/database/Usuario.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/database/Usuario.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/cadastroUsuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/cadastroUsuario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/agendamento.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/agendamento.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,11 +75,22 @@
       <workItem from="1603235402937" duration="6819000" />
       <workItem from="1605008372895" duration="228000" />
       <workItem from="1610310408161" duration="2887000" />
+      <workItem from="1610369483663" duration="3782000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
